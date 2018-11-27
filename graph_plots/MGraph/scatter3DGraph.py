@@ -20,8 +20,13 @@ class Scatter3DGraph(FBoxLayout):
 
         self.orientation = "vertical"
 
-        self._colors = itertools.cycle([rgb('34495e'), rgb('f1c40f'), rgb(
-            '6C7A89'), rgb('BFBFBF'), rgb('00CCFF'), rgb('e67e22')])
+        self._colors = itertools.cycle([rgb('BFBFBF'), rgb('00CCFF'),
+                                        rgb('e67e22'), rgb('8e44ad'), rgb(
+                                            'b7ff00'), rgb('DB0A5B'),
+                                        rgb('C8F7C5'), rgb(
+                                            '34495e'), rgb('f1c40f'),
+                                        rgb('6C7A89')
+                                        ])
 
         self._graph_theme = {
             'label_options': {
