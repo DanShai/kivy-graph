@@ -1,6 +1,4 @@
 '''
-
-
 @author: dan
 '''
 from graph_plots.fwidgets.f_boxlayout import FBoxLayout

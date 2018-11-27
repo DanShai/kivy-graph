@@ -3,7 +3,6 @@
 @author: dan
 '''
 
-
 from extras_plots.graph import Graph
 from extras_plots.ScatterPlot3D import ScatterPlot3D
 
