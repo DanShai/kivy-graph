@@ -1,0 +1,61 @@
+<GraphTest>:
+    orientation: 'vertical'
+    FBoxLayout:
+        bg_color: ['Blue','400']
+        size_hint: 1. , 1.
+        FGridLayout:
+            size_hint: 1. , 1.
+            padding: '10dp'
+            spacing: '10dp'
+            bg_color: ['Teal','400']
+            cols: 2
+            rows: 2
+            LineGraph:
+                bg_color: ['Brown','400']
+                orientation: 'vertical'
+                size_hint: 1, 1
+                padding: '5dp'
+                spacing: '5dp'
+                mode: "Line"
+                id: line_graph
+            HistoGraph:
+                bg_color: ['Brown','400']
+                orientation: 'vertical'
+                size_hint: 1, 1
+                id: hist_graph
+                padding: '5dp'
+                spacing: '5dp'
+            Scatter2DGraph:
+                bg_color: ['Brown','400']
+                orientation: 'vertical'
+                size_hint: 1, 1
+                id: deuxd_graph
+                padding: '5dp'
+                spacing: '5dp'
+            Scatter3DGraph:
+                id: troisd_graph
+                bg_color: ['Brown','400']
+                orientation: 'vertical'
+                size_hint: 1, 1
+                padding: '5dp'
+                spacing: '5dp'
+
+    FBoxLayout:
+        padding: '2dp'
+        spacing: '10dp'
+        orientation: "horizontal"
+        size_hint_y: .2
+        height: '56dp'
+        bg_color: ['Teal','400']
+        FTogButton:
+            size_hint: 1,1
+            text: 'Play'
+            icon: 'fa-play'
+            id: animate_button
+            on_state: root.animate( *args )
+        FSpinner:
+            size_hint: 1,1
+            id: line_spinner
+            values: [ "Line" , "SmoothLine" , "Mesh" , "Stem" ]
+            text: str(self.values[0]) 
+            on_text: root.change_plot(*args)
