@@ -5,7 +5,7 @@
 
 from __future__ import division
 
-from kivy.properties import ListProperty, ObjectProperty
+from kivy.properties import ListProperty, ObjectProperty, NumericProperty
 
 from kivy.graphics import Rectangle, Ellipse, Color, RenderContext
 from graph import Plot
@@ -16,11 +16,13 @@ class HistoPlot(Plot):
     _grects = ListProperty([])
     _colors = ObjectProperty(None)
     _points = ListProperty([])
+    _width = NumericProperty(16)
 
     def __init__(self, **kwargs):
         super(HistoPlot, self).__init__(**kwargs)
 #         self.bind(points=self.ask_draw)
         self.points = self._points
+        print self.points
 
     def create_drawings(self):
 
@@ -28,7 +30,7 @@ class HistoPlot(Plot):
             use_parent_modelview=True,
             use_parent_projection=True)
         with self._grc:
-            for i in xrange(len(self._points)-1):
+            for i in xrange(len(self._points)):
                 self.color = next(self._colors)
                 self._gcolor = Color(*self.color)
                 self._grects.append(Rectangle())
@@ -40,18 +42,15 @@ class HistoPlot(Plot):
         points = self._points
         mapX, mapY = HistoPlot.convert(self)
 
-        for i in xrange(len(points)-1):
-            x = points[i][0]
-            xp1, yp1 = points[i+1]
-            posx = mapX(x)
-            posxp1 = mapX(xp1)
-            pos_y0 = mapY(0)
-            posyp1 = mapY(yp1)
-            self._grects[i].pos = posxp1, pos_y0
+        for i in xrange(len(points)):
+            xp0, yp0 = points[i]
+            posxp0 = mapX(xp0)
+            posyp0 = mapY(yp0)
+            l = self._width
+            h = posyp0 - mapY(0)
 
-            v = posxp1 - posx
-            h = posyp1 - pos_y0
-            self._grects[i].size = (v, h)
+            self._grects[i].pos = posxp0, mapY(0)
+            self._grects[i].size = (l, h)
 
     @staticmethod
     def convert(self):

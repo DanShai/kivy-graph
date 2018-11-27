@@ -63,7 +63,7 @@ class Adata(object):
         return {"X": X, "Y": Y}
 
     def makeHistData(self):
-        a = np.random.randint(1, size=100, high=40)
+        a = np.random.randint(0, size=20, high=10)
         Y, X = self.np_frequecy(a)
         ldatas = zip(X, Y)
         return ldatas

@@ -77,13 +77,13 @@ class GraphTest(FBoxLayout):
         self._line_graph.plotLine(X, Y)
 
     def draw_hist(self):
-        Xlabel = " Draw Sum "
+        Xlabel = " Number "
         Ylabel = " Frequency "
         hdata = self._hdata
         X0 = self._ldata["X"]
         Y0 = self._ldata["Y"]
-        maxX = int(np.max(X0)) + 5
-        maxY = int(np.max(Y0)) + 10
+        maxX = int(np.max(X0))
+        maxY = int(np.max(Y0))
         self._hist_graph.plotHistoGram(hdata, maxX, maxY, Xlabel, Ylabel)
 
     def draw_scatter2d(self):
