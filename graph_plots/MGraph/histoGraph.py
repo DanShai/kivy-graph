@@ -68,6 +68,6 @@ class HistoGraph(FBoxLayout):
         self._agraph.xlabel = Xlabel
         self._agraph.ylabel = Ylabel
 
-        plot = HistoPlot(_points=ldatas, _colors=self._colors, _width=16)
+        plot = HistoPlot(_points=ldatas, _colors=self._colors, _bar_width=16)
 
         self._agraph.add_plot(plot)

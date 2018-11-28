@@ -16,7 +16,7 @@ class HistoPlot(Plot):
     _grects = ListProperty([])
     _colors = ObjectProperty(None)
     _points = ListProperty([])
-    _width = NumericProperty(16)
+    _bar_width = NumericProperty(16)
 
     def __init__(self, **kwargs):
         super(HistoPlot, self).__init__(**kwargs)
@@ -46,7 +46,7 @@ class HistoPlot(Plot):
             xp0, yp0 = points[i]
             posxp0 = mapX(xp0)
             posyp0 = mapY(yp0)
-            l = self._width
+            l = self._bar_width
             h = posyp0 - mapY(0)
 
             self._grects[i].pos = posxp0, mapY(0)

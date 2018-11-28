@@ -1,8 +1,3 @@
-'''
-
-
-@author: dan
-'''
 from __future__ import unicode_literals, print_function
 from kivy.utils import platform, get_color_from_hex
 from color_definitions import colors

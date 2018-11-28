@@ -1,4 +1,5 @@
 '''
+
 @author: dan
 '''
 from graph_plots.fwidgets.f_boxlayout import FBoxLayout
@@ -49,11 +50,11 @@ class GraphTest(FBoxLayout):
 
         self.play = not self.play
         if instance.state == "down":
-            instance.text = "Pause"
-            instance.icon = "fa-pause"
-        else:
             instance.text = "Play"
             instance.icon = "fa-play"
+        else:
+            instance.text = "Pause"
+            instance.icon = "fa-pause"
 
         self.toggle3Danimation()
 
