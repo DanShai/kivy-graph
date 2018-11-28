@@ -19,7 +19,7 @@ class Engine3D:
         self.color = mcolor
         self.rotspeed = .005
         self.trspeed = .01
-        self.eye = np.array([10, 10, 1000])
+        self.eye = np.array([100, 10, 1000])
         self.tex = self.makeTexture()
 
         self._params = None
