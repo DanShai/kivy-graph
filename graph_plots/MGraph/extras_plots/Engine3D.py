@@ -59,7 +59,7 @@ class Engine3D:
         ry = (ymin+ymax)/2
 
         apoint = self.rotate(apoint, [rx, ry, 1], self.baseAngle)
-        apoint = self.rotate(apoint, apoint+1, self.baseAngle)
+        #apoint = self.rotate(apoint, [0, 0, 1], self.baseAngle)
         apoint, perspective = self.project(apoint)
 
         x, y = apoint[:2]
@@ -85,10 +85,10 @@ class Engine3D:
 
     def makeTexture(self):
 
-        size = (6, 6)  # size = at least 4 times sigxy
+        size = (4, 4)  # size = at least 4 times sigxy
         caa = random()  # .6
         ccc = caa*np.array(self.color)
-        ccc[-1] = .9
+        ccc[-1] = .5
         border_color = ccc
         light_color = np.array((1, 1, 1, 1))
 
@@ -124,7 +124,7 @@ class Engine3D:
         x, y, z = _centerxy
         _size = (_rad, _rad)
         pos = (x, y)
-        Translate(x, y)
+        #Translate(x, y)
         anellipse.pos = pos
         anellipse.size = _size
         anellipse.texture = self.tex
